@@ -5,7 +5,7 @@ class MongoDBService {
 
     constructor() {
         // this.dbUrl = 'mongodb://localhost:27017';
-        this.dbUrl = "mongodb://127.0.0.1:27017";
+        this.dbUrl = "mongodb+srv://KhinKhinThant:kktkkt295810@cluster0.ccbic.mongodb.net/";
         this.db = null;
         this.gfs = null;
         this.uploadGridFS = null;
