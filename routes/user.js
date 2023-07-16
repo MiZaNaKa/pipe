@@ -61,7 +61,7 @@ router.post('/', (req, res) => {
   var mailOptions = {
     from: 'khinlay.merryshall@gmail.com',
     to: 'khinkhinthant.sead@gmail.com',
-    subject: 'Sending Email using Node.js',
+    subject: 'Chart',
     text: 'That was easy!'
   };
   
@@ -157,14 +157,15 @@ router.get('/getOTP/:email',async function (req, res, next) {
       var mailOptions = {
         from: 'khinlay.merryshall@gmail.com',
         to: req.params.email,
-        subject: 'Sending Email using Node.js',
-        text: 'That was easy!'
+        subject: 'Chart',
+        text: 'This is your opt.'+token.token
       };
       
       transporter.sendMail(mailOptions, function(error, info){
         if (error) {
           console.log(error);
           console.log(error);
+          res.json(error);
         } else {
           console.log('Email sent: ' + info.response);
           console.log('Email sent: ' + info.response);
@@ -235,6 +236,13 @@ router.post('/verifyOTP',async function (req, res, next) {
         returnResult.message="OTP is not correct"
         res.json(returnResult);
       }
+    }
+    else{
+      var returnObj={
+        status:0,
+        message:'server error'
+      }
+      res.json(returnObj);
     }
     
   }
